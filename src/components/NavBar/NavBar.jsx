@@ -5,7 +5,8 @@ import Cart from '../CartWidget/CartWidget'
 
 const NavBar = () => {
     return (
-        <header className= {classes.braground}>
+        <header className= {classes.background}>
+            <div className={classes.align}>
             <div className={classes.encabezado}>
                     <h1 className={classes.titulo}>ONE PIECE</h1>
                     <img src={logo} alt="Icono de ONE PIECE" />
@@ -17,6 +18,8 @@ const NavBar = () => {
                     <li><Button label={"Tazas"} /></li>
                 </ul>
             </nav>
+            </div>
+
         </header>
        
     )

@@ -1,4 +1,4 @@
-import cart from "./assets/cart.svg"
+import cart from "./assets/carritooo.svg"
 import classes from "./CartWidget.module.css"
 
 const Cart = () => {

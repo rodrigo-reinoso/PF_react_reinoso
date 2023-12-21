@@ -1,17 +1,18 @@
-/*import Card from "../Card/Card"
+import Card from "../Card/Card"
+import classes from "./ItemListContainer.module.css"
 
 const ItemListContainer = (greeting) => {
     return (
         <div className="container">
-            <h2>{greeting.title}</h2>
+            <h2 className= {classes.tituloProductos}>{greeting.title}</h2>
 
-            <div className="d-flex">
-                <Card title={"Monkey. D. Luffy"} image={"./luffy.webp"} />
-                <Card title={"Roronoa Zoro"} image={"./zoro.jpg"} />
-                <Card title={"Ace - Sabo - Luffy"} image={"./ace-sabo-luffy-webp"} />
+            <div className="d-flex column-gap-5 justify-content-center">
+                <Card title={"Monkey. D. Luffy"} img={"./luffy.webp"} />
+                <Card title={"Roronoa Zoro"} img={"./zoro.jpg"} />
+                <Card title={"Ace - Sabo - Luffy"} img={"./ace-sabo-luffy.webp"} />
             </div>
         </div>
     )
 }
 
-export default ItemListContainer */
+export default ItemListContainer 

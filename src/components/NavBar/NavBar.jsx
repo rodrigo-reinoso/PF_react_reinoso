@@ -13,15 +13,17 @@ const NavBar = () => {
                     <img src={logo} alt="Icono de ONE PIECE" />
                 </div>
                 
-
-                <ul className={classes.ul}>
-                    <li><Button label={"Figuras"} /></li>
-                    <li><Button label={"Llaveros"} /></li>
-                    <li><Button label={"Tazas"} /></li>
-                </ul>
-                
+                <div className= "container">
+                    <ul className={classes.ul}>
+                        <li><Button label={"Figuras"} /></li>
+                        <li><Button label={"Llaveros"} /></li>
+                        <li><Button label={"Tazas"} /></li>
+                    </ul>
+                </div>
+               
+                <Cart/>
             </nav>
-            <Cart/>
+            
 
         </header>
        

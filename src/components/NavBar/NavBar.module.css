@@ -1,6 +1,5 @@
 .header{
-    background-color: black;
-    
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +14,7 @@
 
 .titulo {
     text-align: center;
-    color: antiquewhite;
+    color: rgb(31, 19, 3);
     font-size: 50px;
 }
 
@@ -26,8 +25,8 @@
 }
 
 img {
-    width: 50%;
-    height: 14rem;
+    width: 30%;
+    height: 20rem;
     display: flex;
     align-items:center;
     margin-bottom: 30px;

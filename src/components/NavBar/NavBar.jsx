@@ -1,6 +1,7 @@
 import classes from './NavBar.module.css'
-import logo from './assets/One_piece_logo.png'
+import logo from './assets/logo-calavera.jpg'
 import Button from '../Button/Button'
+import Cart from '../CartWidget/CartWidget'
 
 
 const NavBar = () => {
@@ -18,9 +19,9 @@ const NavBar = () => {
                     <li><Button label={"Llaveros"} /></li>
                     <li><Button label={"Tazas"} /></li>
                 </ul>
-                <Cart />
+                
             </nav>
-            
+            <Cart/>
 
         </header>
        

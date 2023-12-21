@@ -1,24 +1,26 @@
-import classes from './NavBar.module.scss'
-import logo from './assets/one-piece-logo'
+import classes from './NavBar.module.css'
+import logo from './assets/One_piece_logo.png'
 import Button from '../Button/Button'
-import Cart from '../CartWidget/CartWidget'
+
 
 const NavBar = () => {
     return (
-        <header className= {classes.background}>
-            <div className={classes.align}>
-            <div className={classes.encabezado}>
-                    <h1 className={classes.titulo}>ONE PIECE</h1>
+        <header className= {classes.header}>
+            <nav className={classes.navBar}>
+                <div className= {classes.alineacion}>
+                <h1 className={classes.titulo}>ONE PIECE</h1>
                     <img src={logo} alt="Icono de ONE PIECE" />
                 </div>
-            <nav>
+                
+
                 <ul className={classes.ul}>
                     <li><Button label={"Figuras"} /></li>
                     <li><Button label={"Llaveros"} /></li>
                     <li><Button label={"Tazas"} /></li>
                 </ul>
+                <Cart />
             </nav>
-            </div>
+            
 
         </header>
        

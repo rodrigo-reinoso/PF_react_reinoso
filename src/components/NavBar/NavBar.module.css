@@ -1,26 +1,36 @@
-.background {
+.header{
     background-color: black;
-    padding: 3rem;
-}
-
-.align {
+    
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
-
-.encabezado {
-    display: flex;
+.navbar{
+ 
+    display: flex !important;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
+    height: 80px;
 }
 
 .titulo {
     text-align: center;
+    color: antiquewhite;
+    font-size: 50px;
+}
+
+.alineacion{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 img {
-    height: 10rem;
+    width: 50%;
+    height: 14rem;
+    display: flex;
+    align-items:center;
+    margin-bottom: 30px;
 }
 
 
@@ -33,4 +43,8 @@ img {
 
 li {
     list-style-type: none;
+}
+
+.botoncito{
+    border-radius: 10px;
 }

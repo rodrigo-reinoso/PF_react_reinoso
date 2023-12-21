@@ -1,0 +1,18 @@
+.carrito {
+    display: flex;
+    gap: 2rem;
+}
+
+.cart {
+    font-size: 2rem;
+    color: white;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        color: red;
+    }
+}
+
+p {
+    margin: 0;
+}

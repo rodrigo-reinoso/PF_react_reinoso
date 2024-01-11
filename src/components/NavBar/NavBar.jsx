@@ -16,7 +16,7 @@ const NavBar = () => {
                 <div className= "container">
                     <ul className={classes.ul}>
                         <li><Button label={"Figuras"} /></li>
-                        <li><Button label={"Llaveros"} /></li>
+                        <li><Button label={"Funkos"} /></li>
                         <li><Button label={"Tazas"} /></li>
                     </ul>
                 </div>

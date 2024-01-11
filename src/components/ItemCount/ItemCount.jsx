@@ -1,4 +1,4 @@
-import classes from './ItemCount.module.scss'
+import classes from './ItemCount.module.css'
 import { useState } from 'react'
 
 const ItemCount = ({ initial, stock, onAdd }) => {

@@ -59,12 +59,13 @@ const products = [
         description : 'Taza barril con la calabera de los sombreros de paja.'
     }
 
-    
-    export const getProducts = () => {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(products)
-            }, 500)
-        })
-    }
+
 ]
+
+export const getProducts = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(products)
+        }, 500)
+    })
+}

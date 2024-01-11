@@ -36,7 +36,7 @@ const products = [
         category : 'funko',
         img : '../funko-luffy-gear-4.webp',
         stock : 3,
-        description : 'Funko pop de Luffy Gear 4'
+        description : 'Increible funko de Luffy en su Gear 4'
     }
     ,
     {
@@ -44,19 +44,19 @@ const products = [
         name : 'Funko Sanji',
         price : 32000,
         category : 'funko',
-        img : '../luffy.webp',
+        img : '../funko-sanji.webp',
         stock : 3,
-        description : 'Funko pop de vinsmoke Sanji.'
+        description : 'Increible funko de Piernas Negras Vinsmoke Sanji.'
     }
     ,
     {
-        id : '1',
-        name : 'Taza barril de One Piece',
-        price : 50000,
+        id : '6',
+        name : 'Taza barril One Piece',
+        price : 7000,
         category : 'taza',
-        img : "../luffy.webp",
+        img : "../taza-one-piece.jpg",
         stock : 3,
-        description : 'Taza barril con la calabera de los sombreros de paja.'
+        description : 'Taza barril con detalle de calabera de los sombreros de paja.'
     }
 
 

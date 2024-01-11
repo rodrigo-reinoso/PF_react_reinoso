@@ -6,27 +6,27 @@ import Cart from '../CartWidget/CartWidget'
 
 const NavBar = () => {
     return (
-        <header className= {classes.header}>
+        <header className={classes.header}>
             <nav className={classes.navBar}>
-                <div className= {classes.alineacion}>
-                <h1 className={classes.titulo}>ONE PIECE</h1>
+                <div className={classes.alineacion}>
+                    <h1 className={classes.titulo}>ONE PIECE</h1>
                     <img src={logo} alt="Icono de ONE PIECE" />
                 </div>
-                
-                <div className= "container">
+
+                <div className="container">
                     <ul className={classes.ul}>
-                        <li><Button label={"Figuras"} /></li>
-                        <li><Button label={"Funkos"} /></li>
-                        <li><Button label={"Tazas"} /></li>
+                        <li><Button>Figuras</Button></li>
+                        <li><Button>Funkos</Button></li>
+                        <li><Button>Tazas</Button></li>
                     </ul>
                 </div>
-               
-                <Cart/>
+
+                <Cart />
             </nav>
-            
+
 
         </header>
-       
+
     )
 }
 

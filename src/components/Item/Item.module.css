@@ -1,4 +1,14 @@
-.contenedor{
-    width: 20rem;
+.contenedor {
     margin: 0 auto;
+}
+
+.containerPriceStock {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+}
+
+.containerPriceStock p strong {
+    font-size: 1rem;
 }

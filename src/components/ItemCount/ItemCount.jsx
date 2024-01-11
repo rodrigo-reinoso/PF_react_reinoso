@@ -1,5 +1,6 @@
 import classes from './ItemCount.module.css'
 import { useState } from 'react'
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 const ItemCount = ({ initial, stock, onAdd }) => {
 
@@ -21,9 +22,9 @@ const ItemCount = ({ initial, stock, onAdd }) => {
     return (
         <div className={classes.container}>
             <div className={classes.itemCount}>
-                <button className={classes.button} onClick={decrement} />
+                <FaMinus className={classes.button} onClick={decrement} />
                 <p>{quantity}</p>
-                <button className={classes.button} onClick={increment} />
+                <FaPlus className={classes.button} onClick={increment} />
             </div>
             <button className={classes.buttonAdd} onClick={() => onAdd(quantity)} disabled={!stock}>Agregar</button>
         </div>

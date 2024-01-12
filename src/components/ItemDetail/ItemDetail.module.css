@@ -1,0 +1,37 @@
+.cardDetail {
+    display: flex;
+    margin: 2rem auto;
+    border: 1px solid yellow
+}
+
+.imgDetail {
+    width: 40rem;
+    border-radius: 2rem;
+}
+
+.bodyDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.Info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+p{
+    font-size: 1.2rem;
+}
+
+
+.itemCountDetail {
+    width: 35rem;
+}
+
+.title{
+    margin: 1rem 0;
+}

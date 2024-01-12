@@ -1,5 +1,6 @@
 import classes from "./Item.module.css"
 import Button from '../Button/Button'
+import { Link } from 'react-router-dom'
 
 const Item = ({ img, name, price, stock }) => {
     return (

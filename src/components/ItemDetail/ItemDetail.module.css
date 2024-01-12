@@ -1,7 +1,7 @@
 .cardDetail {
     display: flex;
     margin: 2rem auto;
-    border: 1px solid yellow
+    border: 1px solid rgb(93, 75, 75)
 }
 
 .imgDetail {

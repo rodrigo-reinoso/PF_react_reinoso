@@ -9,7 +9,7 @@ const ItemDetail = ({ name, img, description, stock, price }) => {
             <img src={img} alt={`Imagen de ${name}`} className={classes.imgDetail} />
             <div className={classes.bodyDetail}>
                 <h4 className={classes.Title}>{name}</h4>
-                <p className='info'>{description}</p>
+                <p className='infoDetail'>{description}</p>
                 <div>
                     <p>Precio:</p>
                     <p>Stock:{stock}</p>

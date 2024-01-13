@@ -2,18 +2,45 @@ import ItemList from "../ItemList/ItemList"
 import classes from "./ItemListContainer.module.css"
 import { useEffect, useState } from "react"
 import { getProducts } from '../../asyncMock'
+import { useParams } from "react-router-dom"
 
 
 
 const ItemListContainer = ({ greeting }) => {
-
+    const [loading, setLoading] = useState(true)
     const [products, setProducts] = useState([])
 
+    const { categoryId } = useParams()
+
     useEffect(() => {
-        getProducts().then(result => {
-            setProducts(result)
-        })
+        if(categoryId) document.title = 'Ecommerce: ' + categoryId 
+        
+        return () => {
+            document.title = 'Ecommerce'
+        }
     })
+
+    useEffect(() => {
+        setLoading(true)
+        
+        const asyncFunction = categoryId ? getProductsByCategory : getProducts
+
+        asyncFunction(categoryId)
+            .then(response => {
+                setProducts(response)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+    }, [categoryId])
+
+
+    if(loading) {
+        return <h1>Cargando los productos...</h1>
+    }
 
     return (
         <div className="container">

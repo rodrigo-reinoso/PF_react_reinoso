@@ -2,7 +2,17 @@ import ItemCount from '../ItemCount/ItemCount'
 import classes from './ItemDetail.module.css'
 
 
-const ItemDetail = ({ name, img, description, stock, price }) => {
+const ItemDetail = ({ id, name, img, description, stock, price }) => {
+    const handleOnAdd = (quantity) => {
+        const objProduct = {
+            id,
+            name,
+            price,
+            quantity
+        }
+
+        console.log('Se agregó correctamente: ', objProduct)
+    }
     return (
 
         <div className={classes.cardDetail}>
@@ -15,7 +25,7 @@ const ItemDetail = ({ name, img, description, stock, price }) => {
                     <p>Stock: {stock}</p>
                 </div>
                 <div className={classes.itemCountDetail}>
-                    <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log('Cantidad Agregada: ', quantity)} />
+                    <ItemCount initial={1} stock={stock} onAdd={handleOnAdd} />
                 </div>
             </div>
         </div>

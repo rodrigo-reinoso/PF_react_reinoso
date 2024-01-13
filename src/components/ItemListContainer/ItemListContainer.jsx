@@ -1,7 +1,7 @@
 import ItemList from "../ItemList/ItemList"
 import classes from "./ItemListContainer.module.css"
 import { useEffect, useState } from "react"
-import { getProducts } from '../../asyncMock'
+import { getProducts, getProductsByCategory } from '../../asyncMock'
 import { useParams } from "react-router-dom"
 
 
@@ -13,10 +13,10 @@ const ItemListContainer = ({ greeting }) => {
     const { categoryId } = useParams()
 
     useEffect(() => {
-        if(categoryId) document.title = 'Ecommerce: ' + categoryId 
+        if(categoryId) document.title = categoryId 
         
         return () => {
-            document.title = 'Ecommerce'
+            document.title = "ONE PIECE"
         }
     })
 

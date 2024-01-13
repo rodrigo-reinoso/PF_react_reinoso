@@ -3,17 +3,17 @@ const products = [
         id : '1',
         name : 'Monkey D Luffy',
         price : 50000,
-        category : 'figura',
+        category : 'figuras',
         img : '../luffy.webp',
         stock : 3,
-        description : 'Figura articulada de Monkey de Luffy de la saga de wano.'
+        description : 'Figura articulada de Monkey D Luffy de la saga de wano.'
     }
     ,
     {
         id : '2',
         name : 'Roronoa Zoro',
         price : 47000,
-        category : 'figura',
+        category : 'figuras',
         img : '../zoro.jpg',
         stock : 2,
         description : 'Figura estatica de Roronoa Zoro Santoryu.'
@@ -23,7 +23,7 @@ const products = [
         id : '3',
         name : 'Ace - Sabo - Luffy',
         price : 100000,
-        category : 'figura',
+        category : 'figuras',
         img : '../ace-sabo-luffy.webp',
         stock : 1,
         description : 'Diorama de los 3 Hermanos Ace, Sabo Y Luffy'

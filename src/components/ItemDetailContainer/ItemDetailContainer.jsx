@@ -8,9 +8,12 @@ import { useParams } from "react-router-dom"
 
 const ItemDetailContainer = () => {
 
+    const [loading, setLoadign] = useState(true)
+
     const [products, setProducts] = useState(null)
 
     const { id } = useParams()
+
 
     useEffect(() => {
         getProductsById(id).then(response => {
@@ -21,8 +24,13 @@ const ItemDetailContainer = () => {
         })
     }, [id])
 
+  
+    if (loading) {
+        return <h2>Cargando...</h2>
+    }
+
     if (!products) {
-        return <h2>Producto no Disponible</h2>
+        return <h2>Producto NO DISPONIBLE</h2>
     }
 
     return (

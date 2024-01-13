@@ -11,8 +11,8 @@ const ItemDetail = ({ name, img, description, stock, price }) => {
                 <h4 className={classes.Title}>{name}</h4>
                 <p className='infoDetail'>{description}</p>
                 <div>
-                    <p>Precio:</p>
-                    <p>Stock:{stock}</p>
+                    <p><strong>Precio: $ {price}</strong></p>
+                    <p>Stock: {stock}</p>
                 </div>
                 <div className={classes.itemCountDetail}>
                     <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log('Cantidad Agregada: ', quantity)} />

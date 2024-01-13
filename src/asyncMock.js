@@ -35,7 +35,7 @@ const products = [
         price : 36000,
         category : 'funko',
         img : '../funko-luffy-gear-4.webp',
-        stock : 3,
+        stock : 2,
         description : 'Increible funko de Luffy en su Gear 4'
     }
     ,
@@ -45,7 +45,7 @@ const products = [
         price : 32000,
         category : 'funko',
         img : '../funko-sanji.webp',
-        stock : 3,
+        stock : 2,
         description : 'Increible funko de Piernas Negras Vinsmoke Sanji.'
     }
     ,

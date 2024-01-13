@@ -8,12 +8,12 @@ const Item = ({ id, img, name, price, stock }) => {
             <div className="card">
                 <img src={img}  className="card-img-top" />
                 <div className="card-body">
-                    <h5>{name} </h5>
+                    <h5 className={classes.tittleItem}>{name} </h5>
                     <div className={classes.contenedorItemPrecioStock }>
-                        <p>Precio:{price}</p>
-                        <p>Stock:{stock}</p>
+                        <strong><p>Precio: $ {price}</p></strong>
+                        <p>Stock: {stock}</p>
                     </div>
-                    <Link  to={`/detail/${id}`}><Button>Agregar</Button></Link>
+                    <Link className="link" to={`/detail/${id}`}><Button>Ver Detalle</Button></Link>
                 </div>
             </div>
         </div>

@@ -21,6 +21,8 @@ const ItemDetailContainer = () => {
             setProducts(response)
         }).catch(error => {
             console.error(error)
+        }).finally(() => {
+            setLoadign(false)
         })
     }, [id])
 

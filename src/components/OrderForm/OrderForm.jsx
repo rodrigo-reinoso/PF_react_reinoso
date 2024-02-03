@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import classes from './OrderForm.module.css'
-import { useNotification } from '../../notification/NotificationService';
+import { useNotification } from '../../Notification/NotificationService'
 
 const OrderForm = ({ onCreate }) => {
     const [name, setName] = useState('')
@@ -9,7 +9,9 @@ const OrderForm = ({ onCreate }) => {
     const { showNotification } = useNotification()
     const [formSubmitted, setFormSubmitted] = useState(false)
 
-    useTitle(true, `ONE PIECE | Generar Orden`, []);
+    useEffect(() => {
+        document.title = 'Plataforma 9 3/4 | Generar Orden'
+    }, [])
 
     const handleNameChange = (e) => {
         setName(e.target.value)
@@ -44,30 +46,30 @@ const OrderForm = ({ onCreate }) => {
 
     return (
         <>
-            <section className={`container ${classes.contacto}`}>
-                <form className={classes.formulario} onSubmit={handleSubmit}>
+            <section className={`container ${classes.contact}`}>
+                <form className={classes.form} onSubmit={handleSubmit}>
 
-                    <h3>Completa todos los campos para generar la orden</h3>
+                    <legend>Completa todos los campos para generar la orden</legend>
 
-                    <div className={classes.contenedorContacto}>
-                        <div className={classes.datos}>
+                    <div className={classes.container}>
+                        <div className={classes.field}>
                             <label>Nombre:</label>
 
-                            <input type="text" placeholder="Nombre" value={name} onChange={handleNameChange} />
+                            <input type="text" placeholder="Tu Nombre" value={name} onChange={handleNameChange} />
                         </div>
 
-                        <div className={classes.datos}>
+                        <div className={classes.field}>
                             <label>Teléfono:</label>
-                            <input type="tel" pattern="[0-9]*" placeholder="Teléfono" value={phone} onChange={handlePhoneChange} />
+                            <input type="tel" pattern="[0-9]*" placeholder="Tu Teléfono" value={phone} onChange={handlePhoneChange} />
                         </div>
 
-                        <div className={classes.datos}>
+                        <div className={classes.field}>
                             <label>E-mail:</label>
-                            <input type="email" placeholder="E-mail" value={email} onChange={handleEmailChange} />
+                            <input type="email" placeholder="Tu E-mail" value={email} onChange={handleEmailChange} />
                         </div>
                     </div>
 
-                    <input type="submit" value='Generar Orden' className={classes.enviar} />
+                    <input type="submit" value='Generar Orden' className={classes.submit} />
 
                 </form>
             </section>

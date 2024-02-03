@@ -1,30 +1,31 @@
 import classes from "./ItemDetailContainer.module.css";
 import { useState, useEffect } from "react"
-import { getProductById } from '../../services/firebase/firestore/products'
+import { getProductById } from '../../services/firebase/firestore/product'
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
-
-
+import { useNotification } from "../../Notification/NotificationService";
+import { db } from "../../services/firebase/firebaseConfig";
+import { doc, getDoc } from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
 
     const [loading, setLoadign] = useState(true)
-    const [products, setProducts] = useState(null)
+    const [product, setProduct] = useState(null)
 
     const { id } = useParams()
 
-    const { showNotification } = showNotification()
+    const { showNotification } = useNotification()
 
 
     useEffect(() => {
         setLoadign(true)
-        
+
         const productDocument = doc(db, 'products', id)
 
         getDoc(productDocument)
             .then(queryDocumentSnapshot => {
                 const fields = queryDocumentSnapshot.data()
-                const productAdapted = { id: queryDocumentSnapshot.id, ...fields}
+                const productAdapted = { id: queryDocumentSnapshot.id, ...fields }
                 setProduct(productAdapted)
             })
             .catch(error => {
@@ -35,19 +36,15 @@ const ItemDetailContainer = () => {
             })
     }, [id])
 
-  
+
     if (loading) {
         return <h2>Cargando...</h2>
-    }
-
-    if (error) {
-        showNotification('error','Producto NO DISPONIBLE')
     }
 
     return (
         <div className='ItemDetailcontainer'>
             <h2>Detalle</h2>
-            <ItemDetail {...products} />
+            <ItemDetail {...product} />
         </div>
     )
 }

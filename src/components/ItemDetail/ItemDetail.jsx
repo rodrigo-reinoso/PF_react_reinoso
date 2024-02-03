@@ -5,20 +5,20 @@ import { useState } from 'react'
 
 
 const ItemDetail = ({ id, name, img, description, stock, price }) => {
-    const { addItem, getProductQuantity } = useCart()
-    
+    const { addItem } = useCart()
+
     const handleOnAdd = (quantity) => {
         const objProduct = {
             id,
             name,
             price,
-            quantity
+            quantity,
+            img
         }
 
-        addItem('Se agregó correctamente: ', objProduct)
+        addItem(objProduct)
     }
 
-    const productQuantity = getProductQuantity(id)
 
     return (
 

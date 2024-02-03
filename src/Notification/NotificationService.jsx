@@ -3,8 +3,8 @@ import Swal from 'sweetalert2'
 import './NotificationService.css';
 
 const NotificationContext = createContext({
-    showNotification: () => {},
-    showConfirmation: () => {}
+    showNotification: () => { },
+    showConfirmation: () => { }
 })
 
 const ConfirmNotification = ({ notificationData }) => {
@@ -63,7 +63,7 @@ const Notification = ({ notificationData }) => {
     }
 }
 
-export const NotificationProvider = ({children}) => {
+export const NotificationProvider = ({ children }) => {
     const [notificationData, setNotificationData] = useState({
         type: '',
         text: ''
@@ -73,8 +73,8 @@ export const NotificationProvider = ({children}) => {
         setNotificationData({ type, text })
     }
 
-    return(
-        <NotificationContext.Provider value={{showNotification}}>
+    return (
+        <NotificationContext.Provider value={{ showNotification }}>
             {notificationData.text && <Notification notificationData={notificationData} />}
             {children}
         </NotificationContext.Provider>

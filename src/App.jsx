@@ -12,25 +12,26 @@ import { CartProvider } from "./context/CartContext"
 function App() {
   return (
     <>
-         <BrowserRouter>
-         <NotificationProvider>
-            <CartProvider>
-             <NavBar />
-                <Routes>
-                  <Route path="/" element={<ItemListContainer/>} />
-                  <Route path="/category/:categoryId" element={<ItemListContainer/>} />
-                  <Route path="/detail/:id" element={<ItemDetailContainer />} />
-                  <Route path="/cart" element={<CartView />} />
-                  <Route path='/checkout' element={<Checkout />} />
-                  <Route path='*' element={<h1>ERROR 404</h1>} />
-               </Routes>
-               </CartProvider>
-              </NotificationProvider>
-            </BrowserRouter>
+      <BrowserRouter>
+        <NotificationProvider>
+          <CartProvider>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<ItemListContainer />} />
+              <Route path="/category/:categoryId" element={<ItemListContainer />} />
+              <Route path="/detail/:id" element={<ItemDetailContainer />} />
+              <Route path="/cart" element={<CartView />} />
+              <Route path='/checkout' element={<Checkout />} />
+              <Route path='*' element={<h1>ERROR 404</h1>} />
+            </Routes>
+          </CartProvider>
+        </NotificationProvider>
+      </BrowserRouter>
     </>
   )
 }
 
 export default App
+
 
 

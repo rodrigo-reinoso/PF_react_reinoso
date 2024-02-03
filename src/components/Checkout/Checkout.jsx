@@ -1,16 +1,16 @@
+import OrderForm from '../OrderForm/OrderForm'
+import classes from './Checkout.module.css'
+import { useCart } from '../../context/CartContext'
 import { db } from '../../services/firebase/firebaseConfig'
 import { collection, getDocs, where, query, documentId, writeBatch, addDoc } from 'firebase/firestore'
-import { useCart } from '../../context/CartContext'
 import { useNotification } from '../../Notification/NotificationService'
 import { useState } from 'react'
-import OrderLogic from '../OrderLogic/OrderLogic'
-import OrderForm from '../OrderForm/OrderForm'
-import classes from './Checkout.module.scss'
+import OrderView from '../OrderView/OrderView'
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderSnapshot, setOrderSnapshot] = useState(null)
-    const { cart, totalPrice, clearCart } = useCart()
+    const { cart, total, clearCart } = useCart()
     const { showNotification } = useNotification()
 
     const createOrder = async (userData) => {
@@ -19,7 +19,7 @@ const Checkout = () => {
             const objOrder = {
                 buyer: userData,
                 item: cart,
-                total: totalPrice
+                total
             }
             const batch = writeBatch(db)
             const outOfStock = []
@@ -41,7 +41,6 @@ const Checkout = () => {
                     batch.update(doc.ref, { stock: stockDb - prodQuantity })
                 } else {
                     outOfStock.push({ id: doc.id, ...fields })
-                    console.log(outOfStock)
                 }
             })
 
@@ -53,23 +52,23 @@ const Checkout = () => {
 
                 setOrderSnapshot(orderSnapshot)
                 clearCart()
-             
             } else {
-                showNotification('error', 'Hay productos que no poseen stock disponible')
+                showNotification('error', 'Hay productos sin stock disponible')
             }
         } catch (error) {
-            showNotification('error', 'Hubo un error al generar la orden')
+            console.error(error);
+            showNotification('error', 'Hubo un error al generar la orden');
         } finally {
             setLoading(false)
         }
     }
 
     if (loading) {
-        return <h2>Su orden se esta generando...</h2>
+        return <h2>Se está generando su orden...</h2>
     }
 
     if (orderSnapshot) {
-        return <OrderLogic orderSnapshot={orderSnapshot} />
+        return <OrderView orderSnapshot={orderSnapshot} />
     }
 
     return (

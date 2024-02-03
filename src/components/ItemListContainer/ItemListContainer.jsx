@@ -1,7 +1,8 @@
 import ItemList from "../ItemList/ItemList"
 import classes from "./ItemListContainer.module.css"
 import { useEffect, useState } from "react"
-import { getProducts } from "../../services/firebase/firestore/products"
+import { useNotification } from '../../Notification/NotificationService'
+import { getDocs, collection, query, where } from "firebase/firestore/products"
 import { useParams } from "react-router-dom"
 
 
@@ -11,6 +12,8 @@ const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
 
     const { categoryId } = useParams()
+
+    const { showNotification } = useNotification()
 
     useEffect(() => {
         if(categoryId) document.title = categoryId 
@@ -23,25 +26,33 @@ const ItemListContainer = ({ greeting }) => {
     useEffect(() => {
         setLoading(true)
         
-        const asyncFunction = categoryId ? getProductsByCategory : getProducts
+        const productsCollection = categoryId 
+        ? query(collection(db, 'products'), where('category', '==', categoryId))
+        : collection(db, 'products')
 
-        asyncFunction(categoryId)
-            .then(response => {
-                setProducts(response)
+    getDocs(productsCollection)
+        .then(querySnapshot => {
+            const productsAdapted = querySnapshot.docs.map(doc => {
+                const fields = doc.data()
+                return { id: doc.id, ...fields}
             })
-            .catch(error => {
-                console.error(error)
-            })
-            .finally(() => {
-                setLoading(false)
-            })
+
+            setProducts(productsAdapted)
+        })
+        .catch(error => {
+            showNotification('error', 'Hubo un error')
+        })
+        .finally(() => {
+            setLoading(false)
+        })
+
     }, [categoryId])
 
 
     if(loading) {
         return <h1>Cargando los productos...</h1>
     }
-
+    
     return (
         <div className="container">
             <h2 className={classes.tituloProductos}>{greeting}</h2>

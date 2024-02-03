@@ -9,25 +9,30 @@ import { useParams } from "react-router-dom"
 const ItemDetailContainer = () => {
 
     const [loading, setLoadign] = useState(true)
-
     const [products, setProducts] = useState(null)
 
     const { id } = useParams()
 
-    const { showNotification } = useNotification()
+    const { showNotification } = showNotification()
 
 
     useEffect(() => {
-        setLoading(true)
+        setLoadign(true)
+        
+        const productDocument = doc(db, 'products', id)
 
-
-     /*   getProductsById(id).then(response => {
-            setProducts(response)
-        }).catch(error => {
-            console.error(error)
-        }).finally(() => {
-            setLoadign(false)
-        })*/
+        getDoc(productDocument)
+            .then(queryDocumentSnapshot => {
+                const fields = queryDocumentSnapshot.data()
+                const productAdapted = { id: queryDocumentSnapshot.id, ...fields}
+                setProduct(productAdapted)
+            })
+            .catch(error => {
+                showNotification('error', 'Hubo un error')
+            })
+            .finally(() => {
+                setLoadign(false)
+            })
     }, [id])
 
   
@@ -41,6 +46,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div className='ItemDetailcontainer'>
+            <h2>Detalle</h2>
             <ItemDetail {...products} />
         </div>
     )

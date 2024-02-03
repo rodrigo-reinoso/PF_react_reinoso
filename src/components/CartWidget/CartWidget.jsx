@@ -7,7 +7,7 @@ const Cart = () => {
     const { totalQuantity } = useCart()
 
   return (
-        <Button><div>
+        <Button to='/cart'><div className={classes.cartContenedor}>
             <FaCartShopping className={classes.carrito} />
             <p>{totalQuantity}</p></div>
         </Button>

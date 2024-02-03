@@ -1,14 +1,12 @@
 import ItemCount from '../ItemCount/ItemCount'
 import classes from './ItemDetail.module.css'
-import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
+import { useCart } from '../../context/CartContext'
 import { useState } from 'react'
 
 
 const ItemDetail = ({ id, name, img, description, stock, price }) => {
     const { addItem, getProductQuantity } = useCart()
-    const { saveCartToLocalStorage } = useLocalStorage()
-
-
+    
     const handleOnAdd = (quantity) => {
         const objProduct = {
             id,
@@ -18,7 +16,6 @@ const ItemDetail = ({ id, name, img, description, stock, price }) => {
         }
 
         addItem('Se agregó correctamente: ', objProduct)
-        saveCartToLocalStorage(objProduct)
     }
 
     const productQuantity = getProductQuantity(id)

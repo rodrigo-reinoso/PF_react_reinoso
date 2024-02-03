@@ -2,7 +2,6 @@ import { db } from '../../services/firebase/firebaseConfig'
 import { collection, getDocs, where, query, documentId, writeBatch, addDoc } from 'firebase/firestore'
 import { useCart } from '../../context/CartContext'
 import { useNotification } from '../../Notification/NotificationService'
-import { useLocalStorage } from '../../LocalStorageContext/LocalStorageContext'
 import { useState } from 'react'
 import OrderLogic from '../OrderLogic/OrderLogic'
 import OrderForm from '../OrderForm/OrderForm'
@@ -11,7 +10,6 @@ import classes from './Checkout.module.scss'
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderSnapshot, setOrderSnapshot] = useState(null)
-    const { clearCartFromLocalStorage } = useLocalStorage()
     const { cart, totalPrice, clearCart } = useCart()
     const { showNotification } = useNotification()
 
@@ -55,19 +53,19 @@ const Checkout = () => {
 
                 setOrderSnapshot(orderSnapshot)
                 clearCart()
-                clearCartFromLocalStorage()
+             
             } else {
-                showNotification('error', 'Hay productos sin stock disponible')
+                showNotification('error', 'Hay productos que no poseen stock disponible')
             }
         } catch (error) {
-            showNotification('error', 'Hubo un al generar la orden')
+            showNotification('error', 'Hubo un error al generar la orden')
         } finally {
             setLoading(false)
         }
     }
 
     if (loading) {
-        return <h2>Se está generando su orden...</h2>
+        return <h2>Su orden se esta generando...</h2>
     }
 
     if (orderSnapshot) {

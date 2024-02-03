@@ -22,3 +22,9 @@
 .link{
     text-decoration: none !important;
 }
+
+@media (max-width: 768px) {
+    .prop {
+        margin-bottom: 2rem;
+    }
+}
